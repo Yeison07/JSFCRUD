@@ -1,0 +1,50 @@
+package co.ups.edu.dao;
+
+import java.util.List;
+
+import co.ufps.edu.conexion.Conexion;
+import co.ufps.edu.entities.Tienda;
+
+public class TiendaDAO {
+
+Conexion con=null;
+	
+	public TiendaDAO(){
+		con= new Conexion();
+		con.setC(Tienda.class);
+	}
+	
+	public Tienda selectById(int id) {
+		Tienda e = (Tienda) con.find(id);		
+		return e;
+	}
+
+	
+	public List<Tienda> selectAll() {
+		
+		List<Tienda> contactos = con.list();
+
+		return contactos;
+	}
+
+	
+	public void insert(Tienda objeto) {
+		
+		con.insert(objeto);
+
+	}
+
+	
+	public void update(Tienda objeto) {
+
+		con.update(objeto);
+
+	}
+
+	
+	public void delete(Tienda objeto) {
+		
+		con.delete(objeto);
+
+	}
+}
